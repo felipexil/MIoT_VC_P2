@@ -42,35 +42,10 @@ while True:
             cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 255, 0), 2)
             y = startY - 15 if startY - 15 > 15 else startY + 15
             cv2.putText(frame, label, (startX, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-    
-    #_, frame = cv2.imencode('.jpeg', frame)  # Encode the frame as JPEG format
-    #display_handle.update(Image(data=frame.tobytes()))  # Update the displayed image
-
+   
     cv2.imshow("Output", frame)
- 
-    
-#    _, image = camera.read()
-#
-#    # Preprocess the image and pass it through the model
-#    blob = cv2.dnn.blobFromImage(image, scalefactor=1.0, size=(300, 300), mean=(104.0, 177.0, 123.0))
-#    model.setInput(blob)
-#    detections = model.forward()
-#
-#    # Loop over the detections and draw bounding boxes
-#    for i in range(detections.shape[2]):
-#        confidence = detections[0, 0, i, 2]
-#        if confidence > 0.2:
-#            box = detections[0, 0, i, 3:7] * np.array([image.shape[1], image.shape[0], image.shape[1], image.shape[0]])
-#            (startX, startY, endX, endY) = box.astype("int")
-#            cv2.rectangle(image, (startX, startY), (endX, endY), (0, 255, 0), 2)
-#
-#    # Show the output image
-#    cv2.imshow("Output", image)
-#    #cv2.waitKey(0)
 
     if cv2.waitKey(25) & 0xFF == ord('q'):
         break
 
 cv2.destroyAllWindows()
-
-
